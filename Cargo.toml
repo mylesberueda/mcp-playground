@@ -1,0 +1,38 @@
+# Adds recommended packages below
+[package]
+name = "mcp-playground"
+version = "0.1.0"
+description = "A simple MCP server that reports the current time"
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = { version = "0.8", features = ["macros"] }
+color-eyre = "0.6"
+serde = { version = "1.0", features = ["derive"] }
+rmcp = { git = "https://github.com/modelcontextprotocol/rust-sdk", branch = "main", features = [
+  "server",
+  "transport-sse-server",
+] }
+serde_json = "1.0"
+thiserror = "2.0"
+tokio = { version = "1.44", features = [
+  "macros",
+  "rt",
+  "rt-multi-thread",
+  "io-std",
+  "signal",
+] }
+tokio-util = { version = "0.7", features = ["codec"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = [
+  "env-filter",
+  "std",
+  "fmt",
+] }
+
+[dependencies.clap]
+git = "https://github.com/clap-rs/clap"
+branch = "master"
+features = ["derive"]
